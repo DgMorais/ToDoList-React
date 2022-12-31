@@ -1,0 +1,78 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.home-container h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.home-container span {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 28px;
+}
+
+.form-login {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 400px;
+}
+
+.form-login label {
+  font-size: 14px;
+}
+
+.form-login input {
+  border: none;
+  margin-bottom: 12px;
+  height: 36px;
+  border-radius: 4px;
+  padding: 0 8px;
+  outline: none;
+}
+
+.form-login input:focus {
+  outline: 3px solid rgb(227, 239, 0);
+}
+
+.form-login button {
+  margin-top: 20px;
+  border: none;
+  height: 36px;
+  border-radius: 4px;
+  background-color: rgb(227, 239, 0);
+  color: #000;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+}
+
+.form-login button:hover {
+  background-color: rgb(227, 239, 0, 0.8);
+  color: #FFF;
+}
+
+.link-register {
+  margin-top: 20px;
+  color: #fff;
+  font-size: 14px !important;
+}
+
+.link-register a {
+  color: #fff;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.link-register a:hover {
+  color:rgb(227, 239, 0)
+}

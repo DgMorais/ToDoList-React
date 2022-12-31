@@ -7,14 +7,15 @@ import Register from '../pages/Register';
 import UserArea from '../pages/UserArea';
 
 import Private from './Private';
+import Logged from './Logged';
 
 function RoutesApp() {
   return (
     <BrowserRouter >
     <ToastContainer autoClos={2000}/>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/" element={<Logged>  <Home /> </Logged>} />
+        <Route path="/register" element={<Logged> <Register /> </Logged>} />
         <Route path="/user-area" element={<Private> <UserArea /> </Private>} />
       </Routes>
     </BrowserRouter>

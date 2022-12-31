@@ -12,6 +12,7 @@
   width: 100%;
   height: 100vh;
   padding: 20px;
+  background-color: rgb(37, 37, 37);
   border-right: 1px solid rgb(227, 239, 0);
 }
 
@@ -43,7 +44,7 @@
 
 .task-description form textarea {
   width: 100%;
-  height: 100px;
+  height: 150px;
   margin: 5px 0;
   border-radius: 4px;
   padding: 5px;
@@ -65,11 +66,23 @@
   cursor: pointer;
 }
 
-.task-description form button:hover {
+.task-description form button:hover, .task-description button:hover {
   background-color: rgb(0, 0, 0);
   color: rgb(227, 239, 0);
   outline: 1px solid rgb(227, 239, 0);
   transition: 0.5s;
+}
+
+.task-description button {
+  width: 100%;
+  height: 30px;
+  margin: 10px 0;
+  border-radius: 4px;
+  padding: 5px;
+  background-color: rgb(227, 239, 0);
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .tasks-content {
@@ -80,18 +93,29 @@
   width: 100%;
   height: 100vh;
   padding: 20px;
-  background-color: rgb(45, 45, 45);
+  background-color: rgb(97, 97, 97);
+  overflow-y: auto;
 }
 
 .tasks-content h2 {
   width: 100%;
-  text-align: left;
+  text-align: center;
   color: #FFF;
   border-bottom: 1px solid rgb(227, 239, 0);
   margin-bottom: 10px;
 }
 
-.tasks-content article {
+.article-tasks {
+  opacity: 1;
+  transition: opacity 1s ease-out;
+}
+
+.article-tasks.hide{
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+
+.article-tasks {
   width: 100%;
   text-align: center;
   margin-bottom: 10px;
@@ -106,10 +130,34 @@
   align-items: center;
   width: 100%;
   background-color: rgb(211, 211, 211);
-  color: rgb(227, 239, 0);
-  cursor: pointer;
   padding: 15px;
   border-bottom: rgb(227, 239, 0);
+}
+
+.checkbox-content input {
+  display: none;
+}
+
+.checkbox-content span {
+  display: inline;
+  width: 18px;
+  height: 18px;
+  display: block;
+  border-radius: 4px;
+  background-color: #fff;
+  border: 1px solid #DDD;
+  cursor: pointer;
+  transform-origin: bottom left;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+.checkbox-content span:hover {
+  transition: 0.2s;
+}
+
+.checkbox-content input:checked + span {
+  background-color: rgb(64, 239, 0);
+  
 }
 
 .title-content h4 {
@@ -120,6 +168,7 @@
 
 .title-content > svg {
   margin-right: 15px;
+  cursor: pointer;
 }
 
 .title-content svg:hover {
@@ -139,6 +188,16 @@
   word-wrap: break-word;
 }
 
+.area-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 15px;
+  border-top: rgb(227, 239, 0);
+}
+
 .exit {
   width: 50px;
   height: 50px;
@@ -155,6 +214,112 @@
   transition: 0.5s;
 }
 
-.d-none {
-  display: none;
+.task-finished {
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  background-color: rgb(227, 239, 0);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* [Object] Modal
+ * =============================== */
+
+.modal {
+  position: absolute;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 70%;
+  height: 70%;
+  background-color: rgb(97, 97, 97);
+  border-radius: 5px;
+  border: 1px solid #FFF;
+}
+
+.modal-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 10%;
+  padding: 10px;
+  background-color: rgb(211, 211, 211);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.modal-header svg {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.modal-header h2 {
+  color: #000;
+}
+
+.modal-body {
+  border-radius: 5px;
+  width: 90%;
+  overflow-y: auto;
+}
+
+@media only screen and (max-width: 480px) {
+  .user-container {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .task-description form textarea {
+    height: 100px;
+  }
+
+  .modal-content {
+    width: 90%;
+    height: 70%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .user-container {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .task-description form textarea {
+    height: 100px;
+  }
+
+  .modal-content {
+    width: 90%;
+    height: 70%;
+  }
 }
